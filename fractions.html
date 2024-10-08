@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<title>Fractions</title>
+		<meta charset="UTF-8">
+		<style>
+			input{
+				width: 100%;
+				font-size: 12px;
+			}
+			td {
+				width: 25px;
+				text-align: center;
+				border: 1px solid black;
+			}
+			table {
+				gap: 10px
+			}
+		</style>
+	</head>
+	<body bgcolor = "#CDFEC2">
+		<center><table>
+			<tr>
+				<td rowspan="2">
+					<input id = "integer1" type="text" placeholder="0">
+				</td>
+				<td>
+					<input id = "numerator1" type="text" placeholder="0">
+				</td>
+				<td rowspan="2">
+					<select id="operation">
+						<option value="+" id="plus">+</option>
+						<option value="-" id="minus">-</option>
+						<option value="*" id="multiplier">*</option>
+						<option value="/" id="divider">/</option>
+					</select>
+				</td>
+				<td rowspan="2">
+					<input id = "integer2" type="text" placeholder="0">
+				</td>
+				<td>
+					<input id = "numerator2" type="text" placeholder="0">
+				</td>
+				<td rowspan="2">=
+				</td>
+				<td rowspan="2">
+					<label id="result"></label>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<input id = "denominator1" type="text" placeholder="0">
+				</td>
+				
+				<td>
+					<input id = "denominator2" type="text" placeholder="0">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button onclick="calculate()">Calculate</button>
+				</td>
+			</tr>
+		</table></center>
+	</body>
+	<script>
+		function calculate(){
+            let i1 = parseFloat(document.getElementById('integer1').value) || 0; // Default to 0 if empty
+            let n1 = parseFloat(document.getElementById('numerator1').value) || 0;
+            let d1 = parseFloat(document.getElementById('denominator1').value) || 1;
+            let i2 = parseFloat(document.getElementById('integer2').value) || 0; // Default to 0 if empty
+            let n2 = parseFloat(document.getElementById('numerator2').value) || 0;
+            let d2 = parseFloat(document.getElementById('denominator2').value) || 1;
+			
+			const operationSelect = document.getElementById('operation');
+			
+			const selectedOperation = operationSelect.value;
+			
+			let result = document.getElementById('result');
+			
+			console.log(i1, n1, d1, selectedOperation);
+			console.log(i2, n2, d2);
+			
+			decimal1 = i1 + n1/d1;
+			console.log(decimal1);
+			decimal2 = i2 + n2/d2;
+			console.log(decimal2);
+			
+			let r = 0;
+			if (selectedOperation === "+"){
+				r = decimal1 + decimal2;
+				}
+			else if (selectedOperation === "-"){
+				r = decimal1 - decimal2;
+				}
+			else if (selectedOperation === "*"){
+				r = decimal1 * decimal2;
+				}
+			else if (selectedOperation === "/"){
+				r = decimal1 / decimal2;
+				}
+			result.innerText = new String(r);
+		}
+	</script>
+</html>
