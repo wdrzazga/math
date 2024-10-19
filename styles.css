@@ -1,0 +1,9 @@
+body {
+	background-color: white; <!-- kom -->
+}
+	
+td {
+	width: 5px;
+	text-align: center;
+	border: 1px solid black;
+}
